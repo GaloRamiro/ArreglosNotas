@@ -1,0 +1,159 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fondo general */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #aaaaaa, #e6e6e6);
+  position: relative;
+}
+
+/* capa del patrón */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: url("imagenes/Fondo.webp");
+  background-size: cover;        /* 🔥 ocupa toda la pantalla */
+  background-position: center;   /* 🔥 centrado */
+  background-repeat: no-repeat;  /* 🔥 no se repite */
+
+ 
+  pointer-events: none;
+}
+/* Contenedor centrado */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 15px;
+}
+
+/* Tarjeta */
+.card {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03); /* transparencia */
+  backdrop-filter: blur(15px); /* efecto vidrio */
+  -webkit-backdrop-filter: blur(15px); /* soporte safari */
+
+  padding: 30px;
+  border-radius: 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.3); /* borde suave */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+  width: 100%;
+  max-width: 350px;
+  text-align: center;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.1)
+  );
+  opacity: 0.5;
+  pointer-events: none;
+}
+/* Título */
+.titulo {
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+/* Input grande */
+.input-grande {
+  width: 100%;
+  font-size: 40px;
+  text-align: center;
+
+  background: transparent; /* 🔥 quita fondo */
+  border: none; /* 🔥 quita bordes */
+  outline: none;
+
+  color: #ffffff; /* blanco para que contraste */
+  
+  margin-bottom: 20px;
+
+ /* lienea debajo  */
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+  padding-bottom: 10px;
+}
+
+.input-grande::placeholder {
+  color: rgba(255,255,255,0.9); /* casi blanco */
+}
+
+/* Contenedor botones */
+.botones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Botones base */
+.btn {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover */
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* Colores */
+.btn-primario {
+  background: #4caf50;
+  color: white;
+}
+
+.btn-secundario {
+  background: #2196f3;
+  color: white;
+}
+
+.btn-terciario {
+  background: #f1f1f1;
+}
+.autor {
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+  margin-top: 15px;
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 480px) {
+  .card {
+    padding: 20px;
+    border-radius: 15px;
+  }
+
+  .input-grande {
+    font-size: 26px;
+    padding: 12px;
+  }
+
+  .btn {
+    font-size: 13px;
+    padding: 10px;
+  }
+}
