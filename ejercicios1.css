@@ -17,24 +17,23 @@ body::before {
   content: "";
   position: absolute;
   inset: 0;
-
+  z-index: -1;
   background: url("imagenes/Fondo.webp");
-  background-size: cover;        /* 🔥 ocupa toda la pantalla */
-  background-position: center;   /* 🔥 centrado */
-  background-repeat: no-repeat;  /* 🔥 no se repite */
+  background-size: cover; /* 🔥 ocupa toda la pantalla */
+  background-position: center; /* 🔥 centrado */
+  background-repeat: no-repeat; /* 🔥 no se repite */
 
- 
   pointer-events: none;
 }
 /* Contenedor centrado */
 .container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  padding: 15px;
+  align-items: flex-start;
+  gap: 30px;
+  min-height: 100vh;
+  padding: 80px 20px; /* 🔥 baja todo */
 }
-
 /* Tarjeta */
 .card {
   position: relative;
@@ -85,16 +84,16 @@ body::before {
   outline: none;
 
   color: #ffffff; /* blanco para que contraste */
-  
+
   margin-bottom: 20px;
 
- /* lienea debajo  */
-    border-bottom: 1px solid rgba(255,255,255,0.3);
+  /* lienea debajo  */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   padding-bottom: 10px;
 }
 
 .input-grande::placeholder {
-  color: rgba(255,255,255,0.9); /* casi blanco */
+  color: rgba(255, 255, 255, 0.9); /* casi blanco */
 }
 
 /* Contenedor botones */
@@ -140,6 +139,49 @@ body::before {
   margin-top: 15px;
 }
 
+.tabla-container {
+  width: 100%;
+  max-width: 600px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  background: rgba(255, 255, 255, 0.05); /* 🔥 transparencia */
+  backdrop-filter: blur(15px);          /* 🔥 vidrio */
+  -webkit-backdrop-filter: blur(15px);
+
+  border-radius: 15px;
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.3); /* 🔥 borde suave */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+   position: relative;
+}
+
+th, td {
+  border: 1px solid rgba(255,255,255,0.2); /* más suave */
+  padding: 10px;
+  text-align: center;
+  color: #fff; /* 🔥 blanco como la card */
+}
+
+table::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 15px;
+
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0.4),
+    rgba(255,255,255,0.1)
+  );
+
+  opacity: 0.3;
+  pointer-events: none;
+}
 /* 📱 RESPONSIVE */
 @media (max-width: 480px) {
   .card {

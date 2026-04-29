@@ -21,7 +21,7 @@
           type="text"
           id="ingresoNota"
           class="input-grande"
-          placeholder="0"
+          placeholder="-"
         />
 
         <div class="botones">
@@ -31,30 +31,11 @@
             class="btn btn-primario"
             onclick="probarAgregar()"
           />
-
-          <input
-            type="button"
-            value="IMPRIMIR"
-            class="btn btn-secundario"
-            onclick="recuperarDato()"
-          />
-
-          <input
-            type="button"
-            value="PROMEDIO"
-            class="btn btn-secundario"
-            onclick="promedionotas()"
-          />
-
-          <input
-            type="button"
-            value="PRUEBA"
-            class="btn btn-terciario"
-            onclick="agregarElementos()"
-          />
         </div>
       </div>
+      <div class="tabla-container" id="generarTabla"></div>
     </div>
+
     <p class="autor">Autor: Galo Cisneros</p>
   </body>
 </html>

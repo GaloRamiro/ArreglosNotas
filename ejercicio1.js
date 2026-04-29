@@ -12,8 +12,17 @@ function agregarNota(ingresoNota) {
 
 function probarAgregar() {
   let notaRecuperada = recuperarInt("ingresoNota");
+  if (isNaN(notaRecuperada)) {
+    alert("Ingrese un número válido"); // 🔥 validación
+    return;
+  }
+  if (notaRecuperada < 0 || notaRecuperada > 10) {
+    alert("La nota debe estar entre 0 y 10");
+    return;
+  }
   agregarNota(notaRecuperada);
   limpiarIngresos();
+  mostarMiNota();
 }
 
 function recuperarDato() {
@@ -32,10 +41,76 @@ function promedionotas() {
   }
   promedioFinal = suma / numeros.length;
   console.log("Suma notas:" + suma);
-  console.log("Promedio de las:" + numeros.length + " es : " + promedioFinal.toFixed(2));
+  console.log(
+    "Promedio de las:" + numeros.length + " es : " + promedioFinal.toFixed(2),
+  );
 }
 
-function limpiarIngresos(){
-    document.getElementById("ingresoNota").value="";
+function limpiarIngresos() {
+  document.getElementById("ingresoNota").value = "";
+}
 
+function generarTabla() {
+  let contenidoTabla = "";
+
+  contenidoTabla += `<table>
+          <tr>
+            <th>CABEZERA 10</th>
+            <th>CABEZERA 11</th>
+            <th>CABEZERA 12</th>
+          </tr>
+          <tr>
+            <td>celda 13</td>
+            <td>celda 14</td>
+            <td>celda 15</td>
+          </tr>
+          <tr>
+            <td>celda 16</td>
+            <td>celda 17</td>
+            <td>celda 18</td>
+          </tr>
+          <tr>
+            <td>celda 19</td>
+            <td>celda 20</td>
+            <td>celda 21</td>
+          </tr>
+        </table>`;
+  let recibirId = document.getElementById("generarTabla");
+  recibirId.innerHTML = contenidoTabla;
+}
+
+function mostarMiNota() {
+  let cmpTextoTabla = document.getElementById("generarTabla");
+
+  let suma = 0;
+  let contenidoTabla = `
+    <table>
+      <tr>
+        <th>#</th>
+        <th>Nota</th>
+      </tr>
+  `;
+
+  for (let i = 0; i < numeros.length; i++) {
+    let miNota = numeros[i];
+    suma += miNota;
+
+    contenidoTabla += `
+      <tr>
+        <td>${i + 1}</td>
+        <td>${miNota}</td>
+      </tr>
+    `;
+  }
+
+  let promedio = numeros.length > 0 ? (suma / numeros.length).toFixed(2) : 0;
+
+  contenidoTabla += `
+      <tr>
+        <th colspan="2">Promedio: ${promedio}</th>
+      </tr>
+    </table>
+  `;
+
+  cmpTextoTabla.innerHTML = contenidoTabla;
 }
