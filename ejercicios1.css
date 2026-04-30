@@ -146,6 +146,7 @@ body::before {
 }
 
 table {
+   table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
 
@@ -170,7 +171,7 @@ td {
   color: #fff; /* 🔥 blanco como la card */
 }
 th {
-  position: sticky;
+  
   top: 0;
   background: rgba(0, 0, 0, 0.6); /* importante */
   z-index: 2;
@@ -231,6 +232,21 @@ table::before {
 
 .tabla-scroll::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.5);
+}
+
+.tabla-header {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-header th,
+.tabla-scroll td {
+  width: 50%;
+}
+
+.tabla-scroll {
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 /* 📱 RESPONSIVE */

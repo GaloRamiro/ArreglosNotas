@@ -85,18 +85,21 @@ function mostarMiNota() {
   let suma = 0;
 
   let contenidoTabla = `
-    <div class="tabla-scroll">
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Nota</th>
-          </tr>
-        </thead>
-        <tbody>
-  `;
+  <table class="tabla-header">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nota</th>
+      </tr>
+    </thead>
+  </table>
 
-  // 🔥 FOR
+  <div class="tabla-scroll">
+    <table>
+      <tbody>
+`;
+
+  //  FOR
   for (let i = 0; i < numeros.length; i++) {
     let miNota = numeros[i];
     suma += miNota;
@@ -111,25 +114,25 @@ function mostarMiNota() {
     `;
   }
 
-  // 🔥 PROMEDIO (antes de usarlo)
-  let promedio =
-    numeros.length > 0 ? (suma / numeros.length).toFixed(2) : 0;
+  //  PROMEDIO (antes de usarlo)
+  let promedio = numeros.length > 0 ? (suma / numeros.length).toFixed(2) : 0;
 
-  // 🔥 CIERRE DE TABLA (fuera del for)
+  //  CIERRE DE TABLA (fuera del for)
+
   contenidoTabla += `
-        </tbody>
-      </table>
-    </div>
+      </tbody>
+    </table>
+  </div>
 
-    <div class="tabla-footer">
-      Promedio: ${promedio}
-    </div>
-  `;
+  <div class="tabla-footer">
+    Promedio: ${promedio}
+  </div>
+`;
 
-  // 🔥 PINTAR
+  //  PINTAR
   cmpTextoTabla.innerHTML = contenidoTabla;
 
-  // 🔥 AUTO SCROLL
+  // AUTO SCROLL
   setTimeout(() => {
     let contenedor = document.querySelector(".tabla-scroll");
     if (contenedor) {
