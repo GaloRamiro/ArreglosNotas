@@ -32,6 +32,7 @@ body::before {
   align-items: flex-start;
   gap: 30px;
   min-height: 100vh;
+  align-items: flex-start;
   padding: 80px 20px; /* 🔥 baja todo */
 }
 /* Tarjeta */
@@ -142,6 +143,9 @@ body::before {
 .tabla-container {
   width: 100%;
   max-width: 600px;
+
+    max-height: 400px;   /*  altura fija */
+  overflow-y: auto;    /*  scroll vertical */
 }
 
 table {
@@ -165,6 +169,12 @@ th, td {
   padding: 10px;
   text-align: center;
   color: #fff; /* 🔥 blanco como la card */
+}
+th {
+  position: sticky;
+  top: 0;
+  background: rgba(0, 0, 0, 0.6); /* importante */
+  z-index: 2;
 }
 
 table::before {
