@@ -143,9 +143,6 @@ body::before {
 .tabla-container {
   width: 100%;
   max-width: 600px;
-
-    max-height: 400px;   /*  altura fija */
-  overflow-y: auto;    /*  scroll vertical */
 }
 
 table {
@@ -153,7 +150,7 @@ table {
   border-collapse: collapse;
 
   background: rgba(255, 255, 255, 0.05); /* 🔥 transparencia */
-  backdrop-filter: blur(15px);          /* 🔥 vidrio */
+  backdrop-filter: blur(15px); /* 🔥 vidrio */
   -webkit-backdrop-filter: blur(15px);
 
   border-radius: 15px;
@@ -161,11 +158,13 @@ table {
 
   border: 1px solid rgba(255, 255, 255, 0.3); /* 🔥 borde suave */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-   position: relative;
+  position: relative;
+  z-index: 1;
 }
 
-th, td {
-  border: 1px solid rgba(255,255,255,0.2); /* más suave */
+th,
+td {
+  border: 1px solid rgba(255, 255, 255, 0.2); /* más suave */
   padding: 10px;
   text-align: center;
   color: #fff; /* 🔥 blanco como la card */
@@ -185,13 +184,55 @@ table::before {
 
   background: linear-gradient(
     120deg,
-    rgba(255,255,255,0.4),
-    rgba(255,255,255,0.1)
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.1)
   );
 
-  opacity: 0.3;
+  opacity: 0.2;
   pointer-events: none;
+  z-index: 0;
 }
+.tabla-scroll {
+  max-height: 400px;
+  overflow-y: auto;
+}
+.tabla-footer {
+  width: 100%;
+
+  background: rgba(255, 255, 255, 0.05); /* mismo estilo tabla */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(255,255,255,0.2);
+  border-top: none; /* se pega a la tabla */
+
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+
+  font-weight: bold;
+
+  border-radius: 0 0 15px 15px;
+}
+
+.tabla-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.tabla-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tabla-scroll::-webkit-scrollbar-thumb {
+   background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.tabla-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
 /* 📱 RESPONSIVE */
 @media (max-width: 480px) {
   .card {
