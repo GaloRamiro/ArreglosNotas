@@ -10,6 +10,7 @@ body {
   font-family: Arial, sans-serif;
   background: linear-gradient(135deg, #aaaaaa, #e6e6e6);
   position: relative;
+  overflow-x: hidden;
 }
 
 /* capa del patrón */
@@ -146,7 +147,7 @@ body::before {
 }
 
 table {
-   table-layout: fixed;
+  table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
 
@@ -154,7 +155,7 @@ table {
   backdrop-filter: blur(15px); /* 🔥 vidrio */
   -webkit-backdrop-filter: blur(15px);
 
-  border-radius: 15px;
+  border-radius: none;
   overflow: hidden;
 
   border: 1px solid rgba(255, 255, 255, 0.3); /* 🔥 borde suave */
@@ -171,7 +172,6 @@ td {
   color: #fff; /* 🔥 blanco como la card */
 }
 th {
-  
   top: 0;
   background: rgba(0, 0, 0, 0.6); /* importante */
   z-index: 2;
@@ -181,7 +181,7 @@ table::before {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 15px;
+  border-radius: none;
 
   background: linear-gradient(
     120deg,
@@ -199,12 +199,12 @@ table::before {
 }
 .tabla-footer {
   width: 100%;
-
+  border-radius: 0 0 15px 15px; /* 🔥 solo abajo */
   background: rgba(255, 255, 255, 0.05); /* mismo estilo tabla */
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
 
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-top: none; /* se pega a la tabla */
 
   padding: 10px;
@@ -225,28 +225,26 @@ table::before {
 }
 
 .tabla-scroll::-webkit-scrollbar-thumb {
-   background: rgba(255,255,255,0.2);
+  background: #4caf50;
   border-radius: 10px;
   backdrop-filter: blur(10px);
 }
 
 .tabla-scroll::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.5);
+  background: #0287b4;
 }
 
 .tabla-header {
   width: 100%;
   border-collapse: collapse;
+
+  border-radius: 15px 15px 0 0; /*  solo arriba */
+  overflow: hidden; /*  clave */
 }
 
 .tabla-header th,
 .tabla-scroll td {
   width: 50%;
-}
-
-.tabla-scroll {
-  max-height: 300px;
-  overflow-y: auto;
 }
 
 /* 📱 RESPONSIVE */
@@ -264,5 +262,43 @@ table::before {
   .btn {
     font-size: 13px;
     padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* 🔥 ESTA ES LA CLAVE */
+    align-items: center;
+    padding: 40px 15px;
+    margin-top: 20px;
+  }
+  .card,
+  .tabla-container {
+    width: 100%;
+    max-width: 100%;
+  }
+  .card {
+    padding: 20px;
+    border-radius: 15px;
+  }
+
+  .input-grande {
+    font-size: 26px;
+    padding: 12px;
+  }
+
+  .btn {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  th,
+  td {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .tabla-footer {
+    font-size: 14px;
   }
 }
