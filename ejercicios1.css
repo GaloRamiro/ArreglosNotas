@@ -155,7 +155,7 @@ table {
   backdrop-filter: blur(15px); /* 🔥 vidrio */
   -webkit-backdrop-filter: blur(15px);
 
-  border-radius: none;
+  border-radius: 0;
   overflow: hidden;
 
   border: 1px solid rgba(255, 255, 255, 0.3); /* 🔥 borde suave */
@@ -246,6 +246,40 @@ table::before {
 .tabla-scroll td {
   width: 50%;
 }
+
+.animar-entrada {
+  opacity: 0;
+  transform: translateY(50px) scale(0.95);
+  animation: aparecerSuave 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.nueva-fila {
+  animation: fadeFila 0.3s ease;
+}
+
+@keyframes fadeFila {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+@keyframes aparecerSuave {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(-8px) scale(1.02); /* 🔥 pequeño rebote */
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+
 
 /* 📱 RESPONSIVE */
 @media (max-width: 480px) {
