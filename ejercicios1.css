@@ -8,37 +8,109 @@
 /* Fondo general */
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #aaaaaa, #e6e6e6);
-  position: relative;
-  overflow-x: hidden;
+
+  background: linear-gradient(135deg, #0f2a44, #1e4e79, #2c6e91);
+
+  min-height: 100vh;
+  margin: 0;
 }
 
-/* capa del patrón */
-body::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: url("imagenes/Fondo.webp");
-  background-size: cover; /* 🔥 ocupa toda la pantalla */
-  background-position: center; /* 🔥 centrado */
-  background-repeat: no-repeat; /* 🔥 no se repite */
+.topbar {
+  width: 100%;
+  height: 60px;
 
-  pointer-events: none;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 30px;
 }
-/* Contenedor centrado */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.logo img {
+  height: 28px; /* 🔥 controla el tamaño del logo */
+  width: auto;
+  object-fit: contain;
+}
+
+.user {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: white;
+  font-size: 13px;
+}
+.header {
+  width: 100%;
+  max-width: 1100px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 30px;
+}
+
+.header-left h1 {
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.header-left p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  margin-top: 3px;
+}
+
+.header-right {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 15px;
+  border-radius: 8px;
+}
+
+.usuario {
+  color: white;
+  font-size: 13px;
+}
+
+.descripcion {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
 .container {
   display: flex;
   justify-content: center;
+  margin-top: 20px;
+  margin: 0 auto;
   align-items: flex-start;
-  gap: 30px;
-  min-height: 100vh;
-  align-items: flex-start;
-  padding: 80px 20px; /* 🔥 baja todo */
+  gap: 40px;
+
+  width: 100%;
+  max-width: 1100px;
+  width: 100%;
 }
 /* Tarjeta */
 .card {
-  position: relative;
+  position: sticky;
+  top: 100px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.03); /* transparencia */
   backdrop-filter: blur(15px); /* efecto vidrio */
@@ -51,7 +123,7 @@ body::before {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 
   width: 100%;
-  max-width: 350px;
+  max-width: 400px;
   text-align: center;
 }
 
@@ -122,8 +194,8 @@ body::before {
 
 /* Colores */
 .btn-primario {
-  background: #4caf50;
-  color: white;
+  background: linear-gradient(135deg, #4caf50, #43a047);
+  font-weight: 500;
 }
 
 .btn-secundario {
@@ -137,13 +209,36 @@ body::before {
 .autor {
   text-align: center;
   font-size: 12px;
-  color: #888;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 11px;
   margin-top: 15px;
+}
+.seccion {
+  width: 100%;
+  max-width: 1100px;
+  margin: 30px auto 10px auto;
+  padding: 0 20px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2; /* 🔥 lo acerca a la card */
+}
+
+.seccion h2 {
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.seccion p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  margin-top: 5px;
 }
 
 .tabla-container {
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
 }
 
 table {
@@ -257,11 +352,23 @@ table::before {
   animation: fadeFila 0.3s ease;
 }
 
-@keyframes fadeFila {
-  from { opacity: 0; transform: translateY(5px); }
-  to { opacity: 1; transform: translateY(0); }
+.main {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto; /* 🔥 centra todo */
+  padding: 20px;
 }
 
+@keyframes fadeFila {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 @keyframes aparecerSuave {
   0% {
@@ -278,8 +385,6 @@ table::before {
     transform: translateY(0) scale(1);
   }
 }
-
-
 
 /* 📱 RESPONSIVE */
 @media (max-width: 480px) {

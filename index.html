@@ -5,7 +5,7 @@
 
     <script src="ejercicio1.js"></script>
     <script src="utilitarios.js"></script>
-    <link rel="icon" href="imagenes/LogoNotas.svg">
+    <link rel="icon" href="imagenes/LogoNotas.svg" />
 
     <!-- CSS externo -->
     <link rel="stylesheet" href="ejercicios1.css" />
@@ -14,6 +14,19 @@
   </head>
 
   <body>
+    <div class="topbar">
+      <div class="logo">
+        <img src="imagenes/logoUniversidad.png" />
+        Sistema Académico
+      </div>
+
+      <div class="user">Docente</div>
+    </div>
+    <div class="main">
+    <div class="seccion">
+      <h2>Ingreso de Notas</h2>
+      <p>Registre las calificaciones del estudiante</p>
+    </div>
     <div class="container">
       <div class="card">
         <h2 class="titulo">Ingreso de Nota</h2>
@@ -34,9 +47,11 @@
           />
         </div>
       </div>
-      <div class="tabla-container" id="generarTabla"></div>
+      <div class="tabla-wrapper">
+        <div class="tabla-container" id="generarTabla"></div>
+        <p class="autor">Autor: Galo Cisneros</p>
+      </div>
     </div>
-
-    <p class="autor">Autor: Galo Cisneros</p>
+    </div>
   </body>
 </html>
