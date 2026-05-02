@@ -13,6 +13,8 @@ body {
 
   min-height: 100vh;
   margin: 0;
+
+  display: block; 
 }
 
 .topbar {
@@ -55,12 +57,12 @@ body {
 }
 .header {
   width: 100%;
-  max-width: 1100px;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
+  padding: 0 40px; /* 👈 en vez de centrar, usa padding */
   margin-bottom: 30px;
 }
 
@@ -96,16 +98,14 @@ body {
 }
 
 .container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  margin: 0 auto;
+  display: flex;              /* 🔥 CAMBIO CLAVE */
+  justify-content: flex-start;
   align-items: flex-start;
-  gap: 40px;
+
+  gap: 60px;
 
   width: 100%;
-  max-width: 1100px;
-  width: 100%;
+  padding-left: 40px;         /* solo izquierda */
 }
 /* Tarjeta */
 .card {
@@ -125,6 +125,7 @@ body {
   width: 100%;
   max-width: 400px;
   text-align: center;
+   justify-self: start; 
 }
 
 .card::before {
@@ -215,13 +216,14 @@ body {
 }
 .seccion {
   width: 100%;
-  max-width: 1100px;
-  margin: 30px auto 10px auto;
   padding: 0 20px;
+  padding-left: 60px; 
+
   margin-top: 30px;
   margin-bottom: 20px;
+
   position: relative;
-  z-index: 2; /* 🔥 lo acerca a la card */
+  z-index: 2;
 }
 
 .seccion h2 {
@@ -344,8 +346,8 @@ table::before {
 
 .animar-entrada {
   opacity: 0;
-  transform: translateY(50px) scale(0.95);
-  animation: aparecerSuave 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform: translateY(80px) scale(0.9); /* más fuerte */
+  animation: aparecerSuave 0.6s ease-out forwards;
 }
 
 .nueva-fila {
@@ -354,11 +356,21 @@ table::before {
 
 .main {
   width: 100%;
-  max-width: 1100px;
-  margin: 0 auto; /* 🔥 centra todo */
   padding: 20px;
-}
 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  margin: 0;          /* 🔥 importante */
+  max-width: none;    /* 🔥 rompe cualquier centrado */
+}
+.tabla-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* 👈 CLAVE */
+  align-items: flex-start;
+}
 @keyframes fadeFila {
   from {
     opacity: 0;
@@ -373,12 +385,12 @@ table::before {
 @keyframes aparecerSuave {
   0% {
     opacity: 0;
-    transform: translateY(40px) scale(0.96);
+    transform: translateY(80px) scale(0.9);
   }
 
   60% {
     opacity: 1;
-    transform: translateY(-8px) scale(1.02); /* 🔥 pequeño rebote */
+    transform: translateY(-10px) scale(1.03); /* rebote más visible */
   }
 
   100% {
@@ -409,16 +421,19 @@ table::before {
     flex-direction: column; /* 🔥 ESTA ES LA CLAVE */
     align-items: center;
     padding: 40px 15px;
+    padding-left: 20px;
     margin-top: 20px;
   }
-  .card,
-  .tabla-container {
-    width: 100%;
-    max-width: 100%;
-  }
+.card,
+.tabla-container {
+  width: 100%;
+  max-width: 100%;
+  justify-self: start;
+}
   .card {
     padding: 20px;
     border-radius: 15px;
+     margin: 0; 
   }
 
   .input-grande {
